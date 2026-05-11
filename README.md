@@ -1,70 +1,103 @@
-# 📦 Inventory Management App (app_estoque)
+# 📦 Inventory Management App
 
-This is a local inventory management application designed to run **without requiring Python installation**.  
-The app helps manage product stock, requests, and history in environments without internet access.
+Desktop inventory management system built for the **Formula SAE team at UNESP**, designed to run fully offline on a workshop computer with unstable network access.
 
-## 🚀 How to Run the Application
-
-1. **Download the repository** from GitHub:  
-   [https://github.com/Lucasyuki01/app_estoque](https://github.com/Lucasyuki01/app_estoque)
-
-2. Open the folder and **double-click the file `app.exe`** to launch the application.
-
-> ⚠️ **Important:**  
-> Windows might show a security warning the first time you open the app.  
-> Click on **"More info"** and then **"Run anyway"**.  
-> This is a common alert for apps not registered with Microsoft and does **not** mean the app is dangerous.
+The app replaced manual spreadsheets and improved how the team tracked parts, managed requests, and documented stock history during competition preparation.
 
 ---
 
-## 🧭 Features
+## 🎯 Problem it solved
 
-### 1. 📊 Estoque (Stock Overview)
-- View current stock
-- Search by product name
-- Withdraw products (with quantity validation)
+The Formula SAE workshop had unreliable internet connectivity, making cloud-based tools impractical. The team needed a fast, always-available solution to:
 
-### 2. 📝 Solicitar Produto (Request Product)
-- Submit product requests with:
-  - Name, Quantity, Importance, Responsible, Observation
-- The system assigns a unique request number
+- Track available parts and materials
+- Manage purchase requests with approval workflow
+- Keep a complete audit log of stock changes
+- Run on a fixed workshop PC without requiring Python installation
 
-### 3. 📦 Acompanhar Solicitação (Track Request)
-- View all requests and filter by responsible or request number
-- Update status (protected by password)
+---
 
-### 4. 🛠 Atualizar Status
-- Change request status using a secure dropdown:
-  - Solicited, Under Analysis, Approved, Rejected, Delivered
+## ✨ Features
 
-### 5. ➕ Gerenciar Estoque
-- **Add New Product**
-- **Add Quantity to Existing Product**
+### 📊 Stock Overview
+- View current inventory at a glance
+- Search products by name
+- Withdraw items with quantity validation
 
-### 6. 🕓 Histórico
-- Complete log of actions: additions, withdrawals, new registrations
-- Filter by product, ID, or responsible
+### 📝 Product Requests
+- Submit requests with name, quantity, importance level, responsible person, and notes
+- Auto-generated unique request ID per submission
+
+### 📦 Request Tracking
+- Filter requests by responsible person or request number
+- Status update protected by password
+
+### 🛠 Status Management
+Requests flow through defined stages:
+`Solicited → Under Analysis → Approved → Rejected → Delivered`
+
+### ➕ Stock Management
+- Add new products
+- Restock existing items
+
+### 🕓 Audit Log
+- Complete history of all actions: additions, withdrawals, new registrations
+- Filter by product, ID, or responsible person
+
+---
+
+## 🛠 Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Language | Python |
+| UI | Tkinter |
+| Database | SQLite (local) |
+| Distribution | Compiled to `.exe` — no Python required |
+
+SQLite was chosen deliberately over a remote database to ensure zero-latency access and full offline operation in the workshop environment.
+
+---
+
+## 🚀 How to Run
+
+**Option 1 — Run the executable (no setup needed):**
+
+1. Download or clone this repository
+2. Double-click `app_estoque.exe`
+
+> ⚠️ Windows may show a security warning on first launch. Click **"More info" → "Run anyway"**. This is standard behavior for unsigned local apps.
+
+**Option 2 — Run from source:**
+
+```bash
+git clone https://github.com/Lucasyuki01/Inventory-management-app.git
+cd Inventory-management-app/Inventory_management
+pip install -r requirements.txt
+python main.py
+```
 
 ---
 
 ## 💾 Data Storage
 
-The application stores data in local `.csv` files:
-- `estoque.csv`
-- `historico.csv`
-- `solicitacoes.csv`
+All data is stored in local `.csv` files in the same directory as the executable:
 
-Make sure all files stay in the same folder as `app.exe` for everything to work correctly.
+- `estoque.csv` — current stock
+- `solicitacoes.csv` — requests log
+- `historico.csv` — full audit trail
+
+Keep all files in the same folder as `app_estoque.exe` for the app to work correctly.
+
+---
+
+## 🏎 Context
+
+This project was built during my 3 years on the **Formula SAE UNESP** team, where I worked in the quality and continuous improvement area. Resource constraints were a constant challenge — this tool was one of several initiatives to improve our operational processes and documentation, contributing to consistent improvements in our competition ranking across three consecutive years.
 
 ---
 
 ## 👨‍💻 Author
 
-Developed by [Lucas Yuki](https://github.com/Lucasyuki01)  
-As a practical project to assist in offline inventory management.
-
----
-
-## 📜 License
-
-This project is open-source and free to use under the MIT License.
+**Lucas Yuki Nishimoto**
+[github.com/Lucasyuki01](https://github.com/Lucasyuki01) · [lucasnishimoto.dev](https://lucasnishimoto.dev)
