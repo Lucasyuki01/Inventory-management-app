@@ -63,7 +63,7 @@ SQLite was chosen deliberately over a remote database to ensure zero-latency acc
 
 **Option 1 — Run the executable (no setup needed):**
 
-1. Download or clone this repository
+1. Download `app_estoque.exe` from the [latest release](https://github.com/Lucasyuki01/Inventory-management-app/releases/latest)
 2. Double-click `app_estoque.exe`
 
 > ⚠️ Windows may show a security warning on first launch. Click **"More info" → "Run anyway"**. This is standard behavior for unsigned local apps.
